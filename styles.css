@@ -1,0 +1,609 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.aquarium {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* background: linear-gradient(to bottom, #87CEEB, #00008B);
+     Light blue to dark blue gradient */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for the letter overlay and container */
+.letter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay to focus on the letter */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.letter-container {
+    width: 80%; /* Adjust to your needs */
+    max-height: 80%; /* Limits the height to 80% of the viewport */
+    /* background: #fff; Background for the letter */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Optional: Padding around the letter */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
+    border-radius: 5px; /* Optional: Rounded corners for a neat look */
+}
+
+.letter-image {
+    width: 100%; /* Takes up full width of the container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Ensures the image is a block element */
+}
+
+
+
+/* Close button styles */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5c5c;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Pacifico', cursive;
+}
+
+/* Hide other elements until the letter overlay is closed */
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Letter icon button styles */
+.letter-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+/* Letter icon image styles */
+.letter-icon img {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Hover effect */
+#letter-icon:hover {
+    transform: scale(1.1); /* Enlarge the icon on hover */
+    opacity: 0.8; /* Slightly fade the icon on hover */
+}
+
+/* Smooth Squash Bounce Animation */
+@keyframes squashBounce {
+    0% {
+        transform: scaleY(1); /* Original size */
+    }
+    50% {
+        transform: scaleY(1.2); /* Squashed (stretched vertically) */
+    }
+    100% {
+        transform: scaleY(1); /* Return to original size */
+    }
+}
+
+/* Apply squash bounce animation on click */
+#letter-icon.bounce {
+    animation: squashBounce 0.3s cubic-bezier(0, 0, 0.5, 1) forwards; /* Smooth cubic-bezier easing */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Background video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire viewport */
+    z-index: -1; /* Sends the video behind all other content */
+}
+
+.cool-title {
+    position: absolute;
+    top: 15px; /* Adjust to position at the middle top */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    color: #fffdf6; /* White color for freshness */
+    z-index: 10; /* Ensure it's above other elements */
+    text-shadow: 4px 3px 5px rgba(111, 245, 255, 0.9); /* Adds a cool shadow effect */
+    animation: pulse 3s infinite alternate;
+}
+
+/* Animation keyframes for a subtle pulsing effect */
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1); /* Slightly enlarge the text */
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+.fish {
+    position: absolute;
+    width: 100px; /* Set fish size */
+    animation: swim 10s linear infinite; /* Animation for swimming */
+}
+
+#fish1 {
+    background-image: url('pictures/fish1.png');
+    top: 10%;
+    left: -25%;
+}
+
+#fish2 {
+    background-image: url('pictures/fish1.png');
+    top: 50%;
+    left: -10%;
+}
+
+#fish3 {
+    background-image: url('pictures/fish1.png');
+    top: 80%;
+    left: -50%;
+}
+
+
+@keyframes swim {
+    0% {
+        transform: translate(-150%, 0) rotate(0deg); /* Start off-screen to the left, no rotation */
+    }
+    25% {
+        transform: translate(500%, -10px) rotate(2deg); /* Move up slightly and rotate a bit */
+    }
+    50% {
+        transform: translate(1000%, 0) rotate(0deg); /* Center of the screen, back to initial rotation */
+    }
+    75% {
+        transform: translate(1500%, 10px) rotate(-2deg); /* Move down slightly and rotate in the opposite direction */
+    }
+    100% {
+        transform: translate(2500%, 0) rotate(0deg); /* End off-screen to the right, no rotation */
+    }
+}
+
+
+.justin-background {
+    position: absolute;
+    top: -35px;
+    left: 10px;
+    width: 45%;
+    height: 120%;
+    
+    object-fit: contain;
+    z-index: 0; /* Layer it correctly behind other elements */
+    opacity: 0.25;
+    animation: backgroundFloat 3s infinite ease-in-out, backgroundDrift 4s infinite ease-in-out alternate;
+}
+
+@keyframes backgroundFloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundDrift {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(15px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+/* Common styles for Justin images */
+.justin {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    background-size: cover;
+    z-index: 1; /* Higher than justin-background */
+    transition: transform 0.3s ease; /* Smooth scaling */
+    opacity: 0.9;
+}
+
+
+
+.justin:hover {
+    transform: scale(1.2); /* Scales the Justins up by 20% */
+}
+
+
+/* Specific styles for each Justin image */
+#justin1 {
+    background-image: url('pictures/justin1.jpg');
+    border: 5px solid rgb(255, 196, 88);
+    animation: float 3s infinite ease-in-out, drift 2s infinite ease-in-out alternate; 
+    -moz-box-shadow: 0 0 5px #ffd16e;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 5px 5px 5px #ff9035;
+    top: 10%;
+    left: 10%;
+    width: 150px;
+    height:150px;
+}
+
+#justin2 {
+    background-image: url('pictures/justin2.jpg');
+    border: 5px solid rgb(188, 255, 166);
+    -moz-box-shadow: 0 0 5px #85ff7a;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 0px 4px 5px #3aff75;
+    top: 30%;
+    left: 35%;
+    width: 120px;
+    height: 120px;
+    
+    animation-duration: 3.5s, 2s;
+}
+
+#justin3 {
+    background-image: url('pictures/justin3.jpg');
+    border: 5px solid rgb(254, 255, 167);
+    -moz-box-shadow: 0 0 5px #ffd16e;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: -8px 5px 5px #ffe253;
+    top: 35%;
+    left: 60%;
+    width: 180px;
+    height: 180px;
+    animation-duration: 4s, 2.5s;
+}
+
+#justin4 {
+    background-image: url('pictures/justin4.jpg');
+    top: 20%;
+    left: 80%;
+    border: 5px solid rgb(255, 151, 151);
+    -moz-box-shadow: 0 0 5px #ffd16e;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: -5px 6px 5px #ff7070;
+    width: 130px;
+    height: 130px;
+    animation-duration: 4.5s, 3s;
+    animation: float 3s infinite ease-in-out, drift 2s infinite ease-in-out alternate; 
+}
+
+#justin5 {
+    background-image: url('pictures/justin5.jpg');
+    top: 55%;
+    left: 20%;
+    border: 5px solid rgb(230, 163, 255);
+    -moz-box-shadow: 0 0 5px #ffd16e;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 5px -5px 5px #c861ff;
+    animation-duration: 5s, 3.5s;
+}
+
+#justin6 {
+    background-image: url('pictures/justin6.jpg');
+    top: 65%;
+    left: 45%;
+    border: 5px solid rgb(115, 180, 255);
+    -moz-box-shadow: 0 0 5px #ffd16e;
+    -webkit-box-shadow: 0 0 5px #fff;
+    box-shadow: 0px -5px 5px #5c95ff;
+    animation-duration: 5.5s, 4s;
+    width: 130px;
+    height: 130px;
+}
+
+
+/* Floating animation for Justin images */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Drift animation for Justin images */
+@keyframes drift {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(15px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* Click animation for Justin elements */
+@keyframes clickAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+
+/* Bubble styles */
+#bubble-trail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: rise 3s ease-out forwards;
+}
+
+@keyframes rise {
+    0% { transform: translateY(0) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-300px) scale(1); opacity: 0; }
+}
+
+
+
+
+
+
+body {
+    font-family: 'Pacifico', cursive;
+}
+
+.volume-control {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(5, 39, 67, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
+
+/* Style the slider track */
+#volume-slider {
+    -webkit-appearance: none; /* Remove default styling */
+    width: 150px;
+    height: 5px;
+    background-color: #a7c6ff;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the slider thumb */
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+#volume-slider::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+/* Add hover effect */
+#volume-slider:hover {
+    background-color: #7692d3;
+}
+
+
+
+/* Text display at the bottom right corner */
+#text-display {
+    position: fixed;
+    bottom: 5px;
+    right: -50px;
+    font-size: 24px;
+    font-family: 'Pacifico', cursive;
+    font-size: 40px;
+    color: #fff690; /* White color for freshness */
+    z-index: 10; /* Ensure it's above other elements */
+    text-shadow: 4px 3px 5px rgba(133, 111, 255, 0.9); /* Adds a cool shadow effect */
+    animation: pulse 3s infinite alternate;
+    display: none; /* Initially hidden */
+}
+
+
+
+
+
+/* Exit Button Styles */
+.toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff7050; /* A distinct color for the button */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Pacifico', cursive;
+    font-size: 18px;
+    z-index: 10; /* Ensure it's above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #c92c04; /* Change color on hover */
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

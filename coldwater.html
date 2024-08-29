@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium Themed Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Audio notes -->
+    <audio id="note1" src="notes/Chords1.mp3"></audio>
+    <audio id="note2" src="notes/Chords2.mp3"></audio>
+    <audio id="note3" src="notes/Chords3.mp3"></audio>
+    <audio id="note4" src="notes/Chords4.mp3"></audio>
+
+    <audio id="letter-sound" src="notes/pageFlip.mp3" preload="auto"></audio>
+
+
+
+
+    <div class="aquarium">
+        <div class="cool-title" id="cool-title">Cold Water</div>
+        <!-- Exit Button -->
+        <button class="toggle-button" id="toggle-button">Start</button>
+
+         <!-- Justin letter overlay -->
+           <div class="letter-overlay" id="letter-overlay">
+            <div class="letter-container">
+                <img src="pictures/code.png" alt="Letter from Justin" class="letter-image">
+                <button class="close-button" id="close-letter-button">Close</button>
+            </div>
+        </div>
+
+        <!-- Icon button to show letter overlay -->
+        <button class="letter-icon" id="letter-icon" title="Read Letter">
+            <img src="pictures/scrollJustin.png" alt="Letter Icon">
+        </button>
+    
+
+          
+            <!-- Background video -->
+        <video class="background-video" autoplay loop>
+            <source src="[Major Lazer Official] Major Lazer - Cold Water (feat. Justin Bieber & MØ) (Official Lyric Video).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video> 
+
+          
+    
+        
+        <!-- Fish elements with images -->
+        <img src="pictures/fish1.png" class="fish" id="fish1">
+        <img src="pictures/fish1.png" class="fish" id="fish2">
+        <img src="pictures/fish1.png" class="fish" id="fish3">
+        <img src="pictures/fish1.png" class="fish" id="fish4">
+
+        <!-- Background image for Justins -->
+        <img src="pictures/music note.png" class="justin-background" id="justin-background" alt="Background Image">
+
+        <!-- Justin picture placeholders -->
+        <div class="justin" id="justin1"></div>
+        <div class="justin" id="justin2"></div>
+        <div class="justin" id="justin3"></div>
+        <div class="justin" id="justin4"></div>
+        <div class="justin" id="justin5"></div>
+        <div class="justin" id="justin6"></div>
+
+        <!-- Bubbles trailing behind the cursor -->
+        <div id="bubble-trail"></div>
+
+         <!-- Text display container -->
+         <div id="text-display"></div>
+        </div>
+        
+        
+    </div>
+
+    <!-- Background music
+    <audio id="background-music" src="Major Lazer - Cold Water (feat. Justin Bieber & MØ) (Official Lyric Video).mp3" autoplay loop style="display:none;">
+        Your browser does not support the audio element.
+    </audio> -->
+
+    <!-- Audio for new MP3 -->
+    <audio id="practice-audio" src="[Sounds Majestic] Underwater Bubbles Sound - Meditation White Noise Relaxation.mp3"></audio>
+
+     <!-- Volume control slider -->
+     <div class="volume-control">
+        <label for="volume-slider">Volume:</label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
